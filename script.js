@@ -118,3 +118,41 @@ contactForm.addEventListener("submit", (event) => {
     contactForm.reset();
 
 });
+
+
+function openCertificate(imageUrl) {
+    const modal = document.getElementById("certificateModal");
+    const modalImage = document.getElementById("certificateModalImage");
+
+    modalImage.src = imageUrl;
+    modal.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeCertificate() {
+    const modal = document.getElementById("certificateModal");
+
+    modal.style.display = "none";
+
+    document.body.style.overflow = "auto";
+}
+
+
+document.getElementById("certificateModal").addEventListener("click", function(event) {
+
+    if (event.target === this) {
+        closeCertificate();
+    }
+
+});
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeCertificate();
+    }
+
+});
